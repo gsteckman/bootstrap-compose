@@ -1,25 +1,31 @@
+import org.jetbrains.compose.*
+
 plugins {
-    kotlin("multiplatform")
+    kotlin("js")
     id("org.jetbrains.compose")
 }
 
 repositories {
     mavenCentral()
-    maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    jetbrainsCompose()
 }
 
 kotlin {
     js(IR) {
         browser {
             binaries.executable()
-        }
-    }
-
-    sourceSets {
-        val jsMain by getting {
-            dependencies {
-                implementation(projects.bootstrapCompose)
+            useCommonJs()
+            commonWebpackConfig {
+                cssSupport.enabled = true
             }
         }
     }
+}
+
+dependencies {
+    implementation(projects.bootstrapCompose)
+    implementation(projects.bootstrapCompose.bootstrapComposeIcons)
+
+    implementation(devNpm("sass-loader", "^13.0.0"))
+    implementation(devNpm("sass", "^1.52.1"))
 }
