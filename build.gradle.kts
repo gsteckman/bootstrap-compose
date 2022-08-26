@@ -4,7 +4,7 @@ import io.gitlab.arturbosch.detekt.*
 
 plugins {
     kotlin("js") version "1.7.10"
-    id("org.jetbrains.compose") version "1.2.0-alpha01-dev745"
+    id("org.jetbrains.compose") version "1.2.0-alpha01-dev770"
     `maven-publish`
     signing
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
@@ -34,7 +34,7 @@ kotlin {
 }
 
 dependencies {
-    api("app.softwork:kotlinx-uuid-core:0.0.15")
+    api("app.softwork:kotlinx-uuid-core:0.0.16")
     api(compose.web.core)
     api(npm("bootstrap", "5.1.3"))
     api(npm("@popperjs/core", "2.11.5"))
@@ -47,10 +47,10 @@ dependencies {
 
 licensee {
     allow("Apache-2.0")
-    allowDependency("org.jetbrains.compose.web", "web-core-js", "1.2.0-alpha01-dev745")
-    allowDependency("org.jetbrains.compose.web", "web-core", "1.2.0-alpha01-dev745")
-    allowDependency("org.jetbrains.compose.web", "internal-web-core-runtime-js", "1.2.0-alpha01-dev745")
-    allowDependency("org.jetbrains.compose.web", "internal-web-core-runtime", "1.2.0-alpha01-dev745")
+    allowDependency("org.jetbrains.compose.web", "web-core-js", "1.2.0-alpha01-dev770")
+    allowDependency("org.jetbrains.compose.web", "web-core", "1.2.0-alpha01-dev770")
+    allowDependency("org.jetbrains.compose.web", "internal-web-core-runtime-js", "1.2.0-alpha01-dev770")
+    allowDependency("org.jetbrains.compose.web", "internal-web-core-runtime", "1.2.0-alpha01-dev770")
 }
 
 val emptyJar by tasks.registering(Jar::class) {
